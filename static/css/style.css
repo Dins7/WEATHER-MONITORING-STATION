@@ -1,0 +1,157 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif; /* Font style */
+  background: linear-gradient(to right, #f0f4f8, #f7f9fc); /* Gradient background */
+  color: #333; /* Text color */
+  margin: 0;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #42a5f5; /* Light blue background */
+  padding: 10px;
+}
+
+/* Navigation Links */
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+nav a:hover {
+  color: #ffeb3b; /* Yellow color on hover */
+  text-decoration: underline;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem; /* Larger font size */
+  color: #ff0000; /* Red color */
+  text-transform: uppercase; /* All capitals */
+  text-align: center; /* Centered text */
+}
+
+/* Paragraphs */
+p {
+  margin: 10px 0; /* Margin for paragraphs */
+}
+
+p:hover {
+  color: #0077cc; /* Blue color on hover */
+  text-decoration: underline;
+}
+
+/* Button Styles */
+button, .btn-large {
+  background-color: #ffa726; /* Orange background */
+  color: white;
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Transition effect */
+}
+
+button:hover, .btn-large:hover {
+  background-color: #ff5722; /* Darker orange on hover */
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Gap between form elements */
+}
+
+form input, form textarea {
+  border-radius: 4px; /* Rounded corners */
+  padding: 8px; /* Padding */
+  border: 1px solid #ccc; /* Light border */
+}
+
+form input:hover, form textarea:hover {
+  border-color: #0077cc; /* Blue border on hover */
+}
+
+/* Submit button in form */
+form input[type="submit"] {
+  background-color: #ff9800; /* Orange background */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #ff5722; /* Darker orange on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #ffca28; /* Yellow background */
+  padding: 20px;
+}
+
+footer .footer-icons a {
+  margin-right: 10px; /* Space between icons */
+  color: #333;
+}
+
+footer .footer-icons a:hover {
+  color: #0077cc; /* Blue color on hover */
+}
+
+/* Widget Container */
+.widget-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px; /* Space between widgets */
+  padding: 20px; /* Padding around the container */
+}
+
+/* Widget Card */
+.widget-card {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 15px; /* Padding inside the card */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition effect */
+}
+
+.widget-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  transform: translateY(-5px); /* Slightly elevate the card */
+}
+
+/* Widget Title */
+.widget-title {
+  font-size: 1.5rem; /* Font size for widget title */
+  font-weight: bold; /* Bold font weight */
+  margin-bottom: 10px; /* Margin below the title */
+  color: #333; /* Text color */
+}
+
+.widget-title:hover {
+  color: #0077cc; /* Blue color on hover */
+}
+
+/* Widget Content */
+.widget-content {
+  font-size: 1rem; /* Font size for content */
+  color: #555; /* Dark gray color */
+}
+
+.widget-content:hover {
+  color: #0077cc; /* Blue color on hover */
+}
+
+/* Responsive Design for Widgets */
+@media (max-width: 600px) {
+  .widget-container {
+      grid-template-columns: 1fr; /* 1 column for small screens */
+  }
+}

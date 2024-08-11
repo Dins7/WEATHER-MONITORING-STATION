@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Weather Prediction</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Project</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Weather Monitoring<br></h5>
+      </div>
+        <div class="text">
+          <p>TEMPERATURE: <span id="temperature"></span> °C</p>
+          <p>HUMIDITY: <span id="humidity"></span> %</p>
+          <p>PRESSURE: <span id="pressure"></span> hPa</p>
+      </div>
+      <form action='/predict' method="POST" class="col s12">
+        <div class="row center">
+          <button onclick="getThingSpeakData()" class="btn-large waves-effect waves-light orange">Get Data and Predict Weather</button>
+        </div>
+      </form>
+      <div class="row center">
+        <br>{{pred}}<br>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Thank you!</h5>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+    // Define your ThingSpeak channel ID and API read key
+      const channelId = '2501403';
+      const apiKey = 'O3AUM1EEG5DL3TJU';
+
+        // Define the ThingSpeak API URL
+        
+        // Function to fetch data from ThingSpeak API
+      async function fetchData() {
+          try {
+            const response = await fetch('https://api.thingspeak.com/channels/2501403/feeds.json?api_key=O3AUM1EEG5DL3TJU&results=2');
+            const data = await response.json();
+             // Extract the latest feed data
+            const latestFeed = data.feeds[0];
+
+            // Update the HTML elements with the fetched data
+            document.getElementById('temperature').innerText = latestFeed.field1; // Replace field1 with the field for temperature
+            document.getElementById('humidity').innerText = latestFeed.field2; // Replace field2 with the field for humidity
+            document.getElementById('pressure').innerText = latestFeed.field3; // Replace field5 with the field for pressure
+            } catch (error) {
+                console.error('Error fetching data from ThingSpeak:', error);
+          }
+      }
+
+        // Call fetchData when the page loads
+      window.onload = function() {
+        fetchData();
+      };
+    
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/Users/dinesharavindh/Desktop/Med/static/css/style.css">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Weather Prediction</title>
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Font style -->
+    <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen, projection" />
+    <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen, projection" />
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Roboto', sans-serif; /* Custom font */
+            background: linear-gradient(to right, #f0f4f8, #f7f9fc); /* Gradient background */
+            color: #333; /* Darker text color */
+            margin: 0;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: #42a5f5; /* Light blue color */
+        }
+
+        /* Header */
+        h1, h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3rem; /* Increase the font size for h1 */
+            font-weight: 700; /* Keep the existing font weight */
+            color: #ff0000; /* Keep the existing color */
+            text-transform: uppercase; /* Make the text all capitals */
+        }
+
+        /* Centered text */
+        .header.center {
+            margin-bottom: 40px;
+        }
+
+        /* Sensor values section */
+        .text {
+            background-color: #e0f7fa; /* Light cyan background */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+
+        .text p {
+            margin-bottom: 10px;
+        }
+
+        /* Button styling */
+        .btn-large {
+            background-color: #ffa726; /* Orange background */
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Transition effect */
+        }
+
+        /* Button hover effect */
+        .btn-large:hover {
+            background-color: #ff5722; /* Darker orange on hover */
+        }
+
+        /* Footer */
+        .page-footer {
+            background-color: #ffca28; /* Yellow background */
+            padding-top: 10px;
+        }
+
+        .center-align {
+            text-align: center; /* Centered text */
+        }
+
+        /* Add some padding around the content */
+        .container {
+            padding: 20px;
+        }
+
+        /* Card styling for sensor values */
+        .card {
+            margin-bottom: 10px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+            padding: 15px;
+            background-color: #ffffff; /* White background */
+        }
+
+        /* Social media icons */
+        .footer-icons {
+            margin-top: 10px;
+        }
+
+        .footer-icons a {
+            margin-right: 10px;
+            color: #333;
+        }
+
+        /* Footer centered */
+        .footer-content {
+            text-align: center; /* Centered text */
+            padding-bottom: 10px;
+        }
+
+        /* Contact and Feedback sections */
+        #contact-info, #feedback-form {
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+
+        /* Form styling */
+        #feedback-form form {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+        }
+
+        #feedback-form form input, #feedback-form form textarea {
+            border-radius: 4px; /* Rounded corners */
+            padding: 8px;
+            border: 1px solid #ccc; /* Light border */
+        }
+
+        #feedback-form form input[type="submit"] {
+            background-color: #ff9800; /* Orange background */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Submit button hover effect */
+        #feedback-form form input[type="submit"]:hover {
+            background-color: #ff5722; /* Darker orange on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <!-- Your navigation content -->
+    </nav>
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h1 class="header center">Weather Monitoring Station</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Sensor values</h5>
+            </div>
+            <div class="text card">
+                <p>TEMPERATURE: <span id="temperature"></span> °C</p>
+                <p>HUMIDITY: 50<span id="humidity"></span> %</p>
+                <p>PRESSURE: <span id="pressure"></span> hPa</p>
+            </div>
+
+            <!-- Section for displaying graphs -->
+            <div class="row center">
+                <h5 class="header col s12 light">Sensor Graphs</h5>
+                <div class="graphs">
+                    <!-- Temperature graph iframe -->
+                    <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2510887/charts/1?dynamic=true&api_key=3F8EF300XESNTPU6"></iframe>
+
+                    <!-- Humidity graph iframe -->
+                    </div><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2510887/charts/2?dynamic=true&api_key=3F8EF300XESNTPU6"></iframe>
+
+                    <!-- Pressure graph iframe -->
+                    <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2510887/charts/3?dynamic=true&api_key=3F8EF300XESNTPU6"></iframe>
+                </div>
+            </div>
+
+            <form action='/predict' method="POST" class="col s12">
+                <div class="row center">
+                    <button onclick="getThingSpeakData()" class="btn-large waves-effect waves-light orange">Click here for Weather Prediction</button>
+                </div>
+            </form>
+            <div class="row center">
+                <br>{{ pred }}<br>
+            </div>
+
+            <!-- Contact Information -->
+            <div id="contact-info" class="card">
+                <h2>Contact Us</h2>
+                <p>Phone Number: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Email: <a href="mailto:support@weathermonitoring.com">support@weathermonitoring.com</a></p>
+            </div>
+
+            <!-- Feedback Form -->
+            <div id="feedback-form" class="card">
+                <h2>Register Your Complaint</h2>
+                <form action="submit_feedback.php" method="POST">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label for="phone">Phone Number:</label><br>
+                    <input type="tel" id="phone" name="phone" required><br><br>
+
+                    <label for="message">Complaint/Feedback:</label><br>
+                    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="page-footer yellow">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col l12 s12 center-align">
+                    <h5 class="blue-text">Thank You!</h5>
+                    <div class="footer-icons">
+                        <!-- Social media links can be added here -->
+                        <a href="#"><i class="material-icons">facebook</i></a>
+                        <a href="#"><i class="material-icons">twitter</i></a>
+                        <a href="#"><i class="material-icons">instagram</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="./js/materialize.js"></script>
+    <script src="./js/init.js"></script>
+
+    <script>
+        // Define your ThingSpeak channel ID and API read key
+        const channelId = '2510887';
+        const apiKey = '3F8EF300XESNTPU6';
+
+        // Function to fetch data from ThingSpeak API
+        async function fetchData() {
+            try {
+                const response = await fetch(`https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=2`);
+                const data = await response.json();
+                // Extract the latest feed data
+                const latestFeed = data.feeds[0];
+
+                // Update the HTML elements with the fetched data
+                document.getElementById('temperature').innerText = latestFeed.field1;
+                //document.getElementById('humidity').innerText = latestFeed.field2;
+                document.getElementById('pressure').innerText = latestFeed.field2;
+            } catch (error) {
+                console.error('Error fetching data from ThingSpeak:', error);
+            }
+        }
+
+        // Call fetchData when the page loads
+        window.onload = function() {
+            fetchData();
+        };
+    </script>
+</body>
+</html>

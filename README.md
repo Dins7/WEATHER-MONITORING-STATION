@@ -90,13 +90,18 @@ Usage:
 Folder Structure:
 
 ├── weather_monitor.py          # Main script for sensor data collection and transmission
+
 ├── ml_model.py                 # Script for training and saving the machine learning model
+
 ├── app.py                      # Flask web application
+
 ├── templates/
 │   └── weather_app.html        # HTML template for the web interface
+
 ├── static/
 │   ├── css/
 │   └── js/
+
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project documentation
 
